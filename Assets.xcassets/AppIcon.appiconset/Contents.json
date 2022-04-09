@@ -31,6 +31,7 @@
       "size" : "40x40"
     },
     {
+      "filename" : "Screen Shot 2022-04-08 at 00.13.26.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
@@ -69,6 +70,12 @@
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
+    },
+    {
+      "filename" : "logo (1).png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "76x76"
     },
     {
       "idiom" : "ipad",
