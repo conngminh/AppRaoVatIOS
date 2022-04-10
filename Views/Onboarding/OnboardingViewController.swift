@@ -19,9 +19,9 @@ class OnboardingViewController: UIViewController {
         didSet {
             pageControl.currentPage = currentPage
             if currentPage == slides.count - 1 {
-                nextBtn.setTitle("Get started", for: .normal)
+                nextBtn.setTitle("Bắt đầu", for: .normal)
             } else {
-                nextBtn.setTitle("Next", for: .normal)
+                nextBtn.setTitle("Tiếp", for: .normal)
             }
         }
     }
@@ -39,15 +39,21 @@ class OnboardingViewController: UIViewController {
     
     func bindData() {
         slides = [
-            OnboardingSlide(title: "Delicious Dishes", description: "Experience a variety of amazing dishes from different cultures around the world.", image: #imageLiteral(resourceName: "slide2")),
-            OnboardingSlide(title: "World-Class Chefs", description: "Our dishes are prepared by only the best.", image: #imageLiteral(resourceName: "slide1")),
-            OnboardingSlide(title: "Instant World-Wide Delivery", description: "Your orders will be delivered instantly irrespective of your location around the world.", image: #imageLiteral(resourceName: "slide3"))
+            OnboardingSlide(title: "Đăng bán dễ dàng", description: "Bạn có thể đăng bán mọi thứ bạn muốn dù đang ở bất cứ đâu", image: #imageLiteral(resourceName: "slide2")),
+            OnboardingSlide(title: "Mua hàng thuận tiện", description: "Bạn có thể mua những thứ bạn cần một cách nhanh chóng, thuận tiện", image: #imageLiteral(resourceName: "slide1")),
+            OnboardingSlide(title: "Sản phẩm đa dạng và chất lượng", description: "Bạn có thể tìm thấy bất kỳ sản phẩm gì bạn muốn với chất lượng tốt", image: #imageLiteral(resourceName: "slide3"))
         ]
+        
+        pageControl.numberOfPages = slides.count
     }
     
     @IBAction func nextBtnClicked(_ sender: UIButton) {
         if currentPage == slides.count - 1 {
-            print("Go to the next page")
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let loginScreen = sb.instantiateViewController(withIdentifier: "LoginViewController")
+            loginScreen.modalPresentationStyle = .fullScreen
+            loginScreen.modalTransitionStyle = .flipHorizontal
+            present(loginScreen, animated: true, completion: nil)
         } else {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
@@ -75,4 +81,5 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
         let width = scrollView.frame.width
         currentPage = Int(scrollView.contentOffset.x / width)
     }
+    
 }
