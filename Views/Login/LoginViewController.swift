@@ -9,6 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     
     override func viewDidLoad() {
@@ -17,13 +18,21 @@ class LoginViewController: UIViewController {
     }
     
     func setupView() {
+        self.changePhaceHolderTextField(yourTextField: tfEmail, text: "Nhập email của bạn", ofSizeText: 17.0)
+        self.changePhaceHolderTextField(yourTextField: tfPassword, text: "Nhập mật khẩu của bạn", ofSizeText: 17.0)
         tfPassword.enablePasswordToggle()
+    }
+    
+    func changePhaceHolderTextField(yourTextField textField: UITextField, text: String, ofSizeText ofSize: Double) {
+        textField.attributedPlaceholder = NSAttributedString(string: text, attributes: [
+            .font: UIFont.systemFont(ofSize: ofSize)
+        ])
     }
     
     @IBAction func SwitchSignUpScreen(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "SignUpViewController")
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = sb.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
 }
@@ -42,8 +51,8 @@ extension UITextField {
     func enablePasswordToggle(){
         let button = UIButton(type: .custom)
         setPasswordToggleImage(button)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-        button.frame = CGRect(x: CGFloat(self.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -30, bottom: 0, right: 0)
+//        button.frame = CGRect(x: CGFloat(self.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
         self.rightView = button
         self.rightViewMode = .always

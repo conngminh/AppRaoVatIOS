@@ -39,8 +39,8 @@ class OnboardingViewController: UIViewController {
     
     func bindData() {
         slides = [
-            OnboardingSlide(title: "Đăng bán dễ dàng", description: "Bạn có thể đăng bán mọi thứ bạn muốn dù đang ở bất cứ đâu", image: #imageLiteral(resourceName: "slide2")),
-            OnboardingSlide(title: "Mua hàng thuận tiện", description: "Bạn có thể mua những thứ bạn cần một cách nhanh chóng, thuận tiện", image: #imageLiteral(resourceName: "slide1")),
+            OnboardingSlide(title: "Đăng bán dễ dàng", description: "Bạn có thể đăng bán mọi thứ bạn muốn dù đang ở bất cứ đâu", image: UIImage(named: "img_intro1")!),
+            OnboardingSlide(title: "Mua hàng thuận tiện", description: "Bạn có thể mua những thứ bạn cần một cách nhanh chóng, thuận tiện", image: UIImage(named: "img_intro2")!),
             OnboardingSlide(title: "Sản phẩm đa dạng và chất lượng", description: "Bạn có thể tìm thấy bất kỳ sản phẩm gì bạn muốn với chất lượng tốt", image: #imageLiteral(resourceName: "slide3"))
         ]
         
