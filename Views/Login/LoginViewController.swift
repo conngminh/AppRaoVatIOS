@@ -35,6 +35,16 @@ class LoginViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func switchHomeScreen(_ sender: Any) {
+        let alert = UIAlertController(title: "Chúc mừng bạn đã đăng nhập thành công", message: nil, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "OK", style: .default) { action in
+            print("Lê Công Minh")
+        }
+        alert.addAction(actionOk)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UITextField {
